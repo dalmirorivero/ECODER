@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Donato Rivero",
+    "mail": "donato.rivero1@gmail.com",
+    "age": "2",
+    "password": "$2b$10$GoKnz7X1q681S3XUZSnuOu4tlKMKKHjnPxKo99ZGhoEOMMsmf0KFu",
+    "photo": "",
+    "role": "0",
+    "createdAt": "2023-11-03T20:35:41.450Z",
+    "updatedAt": "2023-11-03T20:35:41.450Z",
+    "__v": 0,
+    "_id": "412768d76cb8d85dafd9302d"
+  },
+  {
+    "name": "Dalmiro Rivero",
+    "mail": "dalmiro.rivero1@gmail.com",
+    "age": "27",
+    "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+    "photo": "",
+    "role": "1",
+    "createdAt": "2023-11-05T00:23:32.509Z",
+    "updatedAt": "2023-11-05T00:23:32.509Z",
+    "__v": 0,
+    "_id": "38a26fce1d72d9327b837f29"
+  }
+]

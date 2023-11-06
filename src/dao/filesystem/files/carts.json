@@ -1,0 +1,264 @@
+[
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "e067558e14e0f99f38738ae4"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "ff56006ca6a876c6763a2a63"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "b55739747372563d6ba8da12"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "1ad4f655c02a50ef06de33f4"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "e5281377132cb42ae870edf4"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "fa31487c191cb147d501ca16"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "526edf9e03df680a887dda45"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "71ca779c28e79d57f3ab32e3"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "price": 250,
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "state": "pending",
+    "quantity": 1,
+    "_id": "89ac5d0f3ac491deb390e765"
+  },
+  {
+    "product_id": {
+      "title": " PRUEBA PROD CARRITO ",
+      "category": " ",
+      "description": " ",
+      "code": " ",
+      "price": " ",
+      "stock": " ",
+      "_id": "4a85a6d5d8ed965e8d88d16f86"
+    },
+    "user_id": {
+      "name": "Dalmiro Rivero",
+      "mail": "dalmiro.rivero1@gmail.com",
+      "age": "27",
+      "password": "$2b$10$iD/QGNC40VEGBta62cB1JeX9WpNI.ylpEGL3q.IQpo.r/0G1f7wYK",
+      "photo": "",
+      "role": "1",
+      "createdAt": "2023-11-05T00:23:32.509Z",
+      "updatedAt": "2023-11-05T00:23:32.509Z",
+      "__v": 0,
+      "_id": "38a26fce1d72d9327b837f29"
+    },
+    "price": 250,
+    "state": "pending",
+    "quantity": 1,
+    "_id": "30e8c8af290247c0caf8b6a7"
+  }
+]
