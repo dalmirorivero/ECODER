@@ -7,7 +7,8 @@ const PORT = process.env.PORT || port
 
 const ready = () => {
     console.log("mode: " + environment);
+    console.log("Process id: ", process.pid)
     console.log("server ready on port: " + PORT);
 };
 
-app.listen(PORT, ready)
+ app.listen(PORT, ready)

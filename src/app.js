@@ -28,10 +28,6 @@ app.use(compression({
     brotli: { enabled: true, zlib: {} },
 }));
 
-
-
-
-
 // PASSPORT
 
 initializePassport()

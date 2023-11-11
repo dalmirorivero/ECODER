@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "artillery-plugin-metrics-by-endpoint": "^1.2.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "commander": "^11.1.0",
@@ -33,8 +32,8 @@
     "fs": "nodemon ./src/server.js -p 8070 --persistence FS",
     "memory": "nodemon ./src/server.js -p 8090 --persistence MEMORY",
     "faker": "node ./src/dao/data/data.mocks.js",
-    "test-simple": "artillery quick --count 40 --num 50 'http://localhost:8080/api/simple' -o ./src/tests/performance/simplex.json",
-    "test-complex": "artillery quick --count 40 --num 50 'http://localhost:8080/api/complex' -o ./src/tests/performance/complex.json"
+    "image-prod": "docker build -t ecoder .",
+    "container-prod": "docker run -p 8080:8080 ecoder"
   },
   "keywords": [],
   "author": "",
