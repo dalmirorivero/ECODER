@@ -1,30 +1,95 @@
 import CartService from '../services/carts.service.js'
 
-export default class CartController {
-    constructor() {this.service = new CartService()}
+const service = new CartService();
 
-    createController(data) {
-        let response = this.service.createService(data);
-        return response;
+const cartController = {
+  createController: async (req, res, next) => {
+    try {
+      let user = req.user;
+      let data = req.body;
+      data.user_id = user._id;
+      let response = await service.createService(data);
+      return res.sendSuccessCreate(response);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  filterController: async (req, res, next) => {
+    try {
+      let user_id = req.user._id;
+      let state = "pending"; //por default que state='pending'
+      if (req.query.state) {
+        state = req.query.state;
       }
-      filterController(user_id, state) {
-        let response = this.service.filterService(user_id, state);
-        return response;
+      let response = await service.filterService(user_id, state);
+      if (response) {
+        return res.sendSuccess(response);
+      } else {
+        return res.sendNotFound("cart");
       }
-      updateController(id,data) {
-        let response = this.service.updateService(id,data);
-        return response;
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  updateController: async (req, res, next) => {
+    try {
+      let cart_id = req.params.id;
+      let data = req.body;
+      let response = await service.updateService(id, data);
+      if (response) {
+        return res.sendSuccess(response);
+      } else {
+        return res.sendNotFound("cart");
       }
-      destroyController(id) {
-        let response = this.service.destroyService(id);
-        return response;
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  destroyController: async (req, res, next) => {
+    try {
+      let cart_id = req.params.id;
+      let response = await service.destroyService(cart_id);
+      if (response) {
+        return res.sendSuccess(response);
+      } else {
+        return res.sendNotFound("cart");
       }
-      readAllController(page) {
-        let response = this.service.readAllService(page);
-        return response;
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  readAllController: async (req, res, next) => {
+    try {
+      let page = req.query.page || 1
+      let response = await service.readAllService(page);
+      if (response) {
+        return res.sendSuccess(response)
+      } else {
+        return res.sendNotFound('carts')
       }
-      gainController(user_id) {
-        let response = this.service.gainService(user_id);
-        return response;
+    } catch (error) {
+      next(error)
+    }
+  },
+
+  gainController: async (req, res, next) => {
+    try {
+      let user_id = req.user._id
+      console.log(user_id);
+      let response = await service.gainService(user_id);
+      if (response) {
+        return res.sendSuccess(response)
+      } else {
+        return res.sendNotFound('carts')
       }
+    } catch (error) {
+      next(error)
+    }
+  }
 };
+
+export default cartController;
