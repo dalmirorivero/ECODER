@@ -14,7 +14,6 @@ const initializePassport = () => {
             let user = await model.readOneUserModel(payload.mail)
             if (user) {
                 user.response.password = null;
-
                 done(null, user.response)
             } else {
                 done(null)
@@ -24,9 +23,8 @@ const initializePassport = () => {
         }
     }))
 
-
     passport.serializeUser((user, done) => {
-        return done (null, user._id)
+        return done(null, user._id)
     })
 
     passport.deserializeUser(async (id, done) => {
