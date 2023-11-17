@@ -1,4 +1,7 @@
 import dao from '../dao/factory.js'
+import CustomError from '../config/CustomError.js';
+import errors from '../config/errors.js';
+
 const { User } = dao;
 
 export default async function (req, res, next){
@@ -9,14 +12,10 @@ export default async function (req, res, next){
         if (!one){
             next ()
         } else{
-            return res.status(401).json({
-                status: 401,
-                method: req.method,
-                path: req.url,
-                response: 'invalid credential'
-            })
+            return CustomError.newError(errors.authentication)
         }
     } catch (error) {
+        error.where = "valid user middleware"
         next(error)
     }
 };

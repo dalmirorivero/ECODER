@@ -4,10 +4,13 @@ const {Cart} = dao
 
 export default class CartsRepository {
     constructor() { this.model = new Cart()}
-    createRepository = (data) => {
-        let dataDto = new CartDto(data);
+    createRepository = (data, next) => {
+        try {let dataDto = new CartDto(data);
         let response = this.model.createModel(dataDto);
-        return response;
+        return response;} catch {
+          error.where = 'repository'
+          return next(error)
+        }
       };
       filterRepositories = (user_id, state) => this.model.filterModels(user_id, state);
       updateRepository = (id, data) => this.model.updateModel(id, data);

@@ -18,6 +18,7 @@ export default async function (req, res, next) {
     }
     return res.sendInvalidCred()
 } catch(error) {
+    error.where = "pass middleware";
     next(error)
 }
 }

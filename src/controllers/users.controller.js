@@ -16,6 +16,7 @@ const authController = {
                     })
             }
         } catch (error) {
+            error.where = " auth controller "
             next(error)
         }
     },
@@ -35,6 +36,7 @@ const authController = {
                 return res.sendNotFound('user');
             }
         } catch (error) {
+            error.where = " auth controller "
             next(error)
         }
     },
@@ -57,6 +59,7 @@ const authController = {
                 .sendNotFound('user')
             }
         } catch (error) {
+            error.where = " auth controller "
             next(error)
         }
     },
@@ -70,6 +73,7 @@ const authController = {
                 return res.sendNotFound('users')
             }
         } catch (error) {
+            error.where = " auth controller "
             next(error)
         }
     },

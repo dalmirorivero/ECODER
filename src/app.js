@@ -7,12 +7,15 @@ import config from './config/config.js';
 import cookieParser from 'cookie-parser';
 import IndexRouter from './router/index.js'
 import compression from 'express-compression';
+import winston from './middlewares/winston.js';
 import sessions from './config/session/factory.js';
 import initializePassport from './config/passport.js'
 import error_handler from './middlewares/errorHandler.js';
-import not_found_handler from './middlewares/notFound.js'
+import not_found_handler from './middlewares/notFound.js';
 
-import winston from './middlewares/winston.js';
+import swaggerJSDoc from 'swagger-jsdoc';
+import { serve,setup } from 'swagger-ui-express';
+import swaggerOptions from './config/swagger.js';
 
 // SERVIDOR
 
@@ -27,6 +30,9 @@ app.use(cookieParser(config.SECRETCOOKIE));
 app.use(compression({
     brotli: { enabled: true, zlib: {} },
 }));
+
+const specs = swaggerJSDoc(swaggerOptions);
+app.use("/api/docs", serve, setup(specs));
 
 // PASSPORT
 

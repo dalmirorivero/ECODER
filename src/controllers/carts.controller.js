@@ -1,4 +1,4 @@
-import CartService from '../services/carts.service.js'
+import CartService from '../services/carts.service.js';
 
 const service = new CartService();
 
@@ -11,6 +11,7 @@ const cartController = {
       let response = await service.createService(data);
       return res.sendSuccessCreate(response);
     } catch (error) {
+      error.where = " cart controller "
       next(error);
     }
   },
@@ -29,6 +30,7 @@ const cartController = {
         return res.sendNotFound("cart");
       }
     } catch (error) {
+      error.where = " cart controller "
       next(error);
     }
   },
@@ -37,13 +39,14 @@ const cartController = {
     try {
       let cart_id = req.params.id;
       let data = req.body;
-      let response = await service.updateService(id, data);
+      let response = await service.updateService(cart_id, data);
       if (response) {
         return res.sendSuccess(response);
       } else {
         return res.sendNotFound("cart");
       }
     } catch (error) {
+      error.where = " cart controller "
       next(error);
     }
   },
@@ -58,6 +61,7 @@ const cartController = {
         return res.sendNotFound("cart");
       }
     } catch (error) {
+      error.where = " cart controller "
       next(error);
     }
   },
@@ -72,6 +76,7 @@ const cartController = {
         return res.sendNotFound('carts')
       }
     } catch (error) {
+      error.where = " cart controller "
       next(error)
     }
   },
@@ -87,6 +92,7 @@ const cartController = {
         return res.sendNotFound('carts')
       }
     } catch (error) {
+      error.where = " cart controller "
       next(error)
     }
   }

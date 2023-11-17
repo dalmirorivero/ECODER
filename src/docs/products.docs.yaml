@@ -1,0 +1,377 @@
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        title:
+          description: Nombre del producto
+          type: string
+        category:
+          description: Categoria del producto
+          type: string
+        description:
+          description: Descripcion breve del producto
+          type: string
+        code:
+          description: Codigo unico identificador del producto
+          type: string
+        price:
+          description: Precio del producto
+          type: number
+        stock:
+          description: Stock disponible del producto
+          type: number
+      example:
+        title: Jabon
+        category: Lavanderia
+        description: Jabon p/ropa vegano
+        code: MN001
+        price: 1200
+        stock: 25
+  responses:
+    successCreate:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Producto creado correctamente
+        payload: 
+          product_id: 65481067d180fb9fa0c83ed3
+          price: 1200
+    successRead:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Array de respuesta
+      example:
+        status: success
+        message: Productos encontrados
+        payload: 
+          - title: Jabon
+            category: Lavanderia
+            description: Jabon p/ropa vegano
+            code: MN001
+            price: 1200
+            stock: 25
+    successReadOne:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Producto encontrado
+        payload: 
+          - title: Detergente
+            category: Cocina
+            description: Detergente 1/2l
+            code: MN002
+            price: 1000
+            stock: 10
+    successUpdate:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Producto actualizado correctamente
+        payload: 
+          - title: Jabon
+            category: Lavanderia
+            description: Jabon p/ropa vegano
+            code: MN001
+            price: 1200
+            stock: 25
+    successDelete:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Producto eliminado correctamente
+        payload: 
+          product_id: 65481067d180fb9fa0c83ed3
+    fatalCreate:
+      type: String
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: fatal
+        response: 
+          method: POST
+          path: /api/products
+          message: error en la creacion del producto
+    fatalRead:
+      type: String
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: fatal
+        response: 
+          method: GET
+          path: /api/products
+          message: error en la lectura
+    fatalUpdate:
+      type: String
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: fatal
+        response: 
+          method: PUT
+          path: /api/products/{id}
+          message: error en la actualizacion del producto
+    fatalDelete:
+      type: String
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: fatal
+        response: 
+          method: DELETE
+          path: /api/products/{id}
+          message: error en la eliminacion del producto
+    notFound:
+      type: Object
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: error
+        response:
+          from: controller
+          message: error documentos no encontrados
+    forbidden:
+      type: Object
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: forbidden
+        response:
+          from: middleware
+          message: unauthorized
+    required:
+      type: Object
+      properties:
+        status: Codigo de estado
+        response: Objeto de respuesta
+        message: Mensaje de error
+      example:
+        status: error
+        response:
+          from: middleware
+          message: field required
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+paths:
+  /api/products:
+    post:
+      summary: Creacion de un nuevo producto
+      tags:
+        - Products
+      security: 
+        - cookieAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/Product'    
+      responses:
+        "201":
+          description: Respuesta de exito en la creacion del producto
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successCreate'
+        "400":
+          description: Campos requeridos incompletos
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/required'
+        "403": 
+          description: Acceso no autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/forbidden'
+        "500":
+          description: Error fatal en el servidor al crear un nuevo producto.
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalCreate'
+    get:
+      summary: Lectura de productos
+      tags:
+        - Products
+      responses:
+        "200":
+          description: Respuesta de exito en la lectura de productos
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successRead'
+        "403": 
+          description: Acceso no autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/forbidden'
+        "404":
+          description: Producto/s no encontrados
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/notFound'
+        "500":
+          description: Error fatal en el servidor al leer los productos.
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalRead'
+  /api/products/{id}:
+    get:
+      summary: Lectura de un producto
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ObjectId del producto a leer
+          schema:
+            $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/Product'
+      responses:
+        "200":
+          description: Respuesta de exito en la lectura del producto
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successReadOne'
+        "403": 
+          description: Acceso no autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/forbidden'
+        "404":
+          description: Producto/s no encontrados
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/notFound'
+        "500":
+          description: Error fatal en el servidor al leer los productos.
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalRead'
+    put:
+      summary: Actualizacion de los datos de un producto
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ObjectId del producto a modificar
+          schema:
+            $type: String
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/Product'
+      responses:
+        "200":
+          description: Respuesta de exito en la actualizacion del producto
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successUpdate'
+        "403": 
+          description: Acceso no autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/forbidden'
+        "404":
+          description: Producto/s no encontrados
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/notFound'
+        "500":
+          description: Error fatal en el servidor al actualizar un producto.
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalUpdate'
+    delete:
+      summary: Eliminacion de un producto
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ObjectId del producto a eliminar
+          schema:
+            $type: String
+      responses:
+        "200":
+          description: Respuesta de exito al eliminar un producto
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successDelete'
+        "403": 
+          description: Acceso no autorizado
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/forbidden'
+        "404":
+          description: Producto/s no encontrados
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/notFound'
+        "500":
+          description: Error fatal en el servidor al eliminar un producto.
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalDelete'

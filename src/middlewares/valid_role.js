@@ -1,16 +1,15 @@
+import errors from "../config/errors.js";
+import CustomError from "../config/CustomError.js";
+
 export default function (req, res, next) {
     try {
-        
-        if(req.user.role === 1 || req.user.role === "1"){
+        if (req.user.role === 1 || req.user.role === "1") {
             next()
-        }else {
-            return res.status(403).json({
-                status: 403,
-                method: req.method,
-                path: req.url,
-                response: 'No posee los permisos'})
+        } else {
+            return CustomError.newError(errors.authorization)
         }
     } catch (error) {
+        error.where = "role middleware";
         next(error)
     }
 };

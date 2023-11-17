@@ -1,0 +1,180 @@
+components:
+  schemas:
+    register:
+      type: Object
+      properties:
+        name:
+          type: string
+          description: Nombre del usuario
+        mail:
+          type: string
+          description: Correo electronico               
+        password:
+          type: string
+          description: Clave de ingreso
+      example:
+        name: Donato 
+        mail: do.ni.zio@salchi.com
+        password: Donato04
+    login:
+      type: Object
+      properties:
+        mail:
+          type: string
+          description: Correo electronico               
+        password:
+          type: string
+          description: Clave de ingreso
+      example:
+        mail: do.ni.zio@salchi.com
+        password: Donato04
+  responses:
+    successRegister:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Producto creado correctamente
+        payload: 
+          user_id: 65481067d180fb9fa0c83ed3
+    successLogin:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Inicio de sesion exitoso
+    successLogout:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de exito
+        payload: Objeto de respuesta
+      example:
+        status: success
+        message: Cierro de sesion exitoso
+    invalidCredential:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de error
+        response: Objeto de respuesta
+      example:
+        status: error
+        response:
+          message: Invalid credentials
+          from: Middleware
+    fatalError:
+      type: Object
+      properties:
+        status: Codigo de estado
+        message: Mensaje de error
+      example:
+        status: fatal
+        message: error en el servidor
+  securitySchemes:
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: token
+
+paths:
+  /api/auth/register:
+    post:
+      summary: Registrar un nuevo usuario
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        description: Objeto de propiedades para realizar el registro
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/register'
+      responses:
+        "201":
+          description: Respuesta de exito en el registro
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successRegister'
+        "401":
+          description: Credenciales invalidas o incompletas
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/invalidCredential'
+        "500":
+          description: Error fatal en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#components/errorResponses/fatalError'
+  /api/auth/login:
+    post:
+      summary: Inicio de sesion
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        description: Objeto de propiedades para iniciar sesion
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/login'
+      responses:
+        "200":
+          description: Respuesta de exito en el inicio de sesion
+          headers:
+            Set-cookie:
+              schema:
+                type: string
+                example: token = n4i12ofnasj.n3214io21.n4io21n4i12o
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successLogin'
+        "401":
+          description: Credenciales invalidas o incompletas
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/invalidCredential'
+        "500":
+          description: Error fatal en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#components/errorResponses/fatalError'
+  /api/auth/logout:
+    post:
+      summary: Cierre de sesion
+      tags:
+        - Auth
+      security:
+        - cookieAuth: []
+      responses:
+        "200":
+          description: Respuesta de exito en el cierre de sesion
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/successLogout'
+        "401":
+          description: Credenciales invalidas o incompletas
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/invalidCredential'
+        "500":
+          description: Error fatal en el servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#components/responses/fatalError'
+      
