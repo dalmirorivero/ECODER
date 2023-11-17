@@ -35,6 +35,17 @@ export default class ProductMongo {
         }
     };
 
+    async readModelTest(skip, limit, next) {
+        try {
+            return await Product.find().skip(skip).limit(limit)
+        }
+        catch (error) {
+
+            error.where = "products persistence mongo"
+            return next(error)
+        }
+    };
+
     async readOneModel(id, next) {
         try {
             let one = await Product.findById(id)
