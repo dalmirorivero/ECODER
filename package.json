@@ -28,6 +28,8 @@
   "type": "module",
   "scripts": {
     "mocha": "mocha ./test/mocha",
+    "chai": "mocha ./test/chai",
+    "super": "mocha test/supertest",
     "dev": "nodemon ./src/server.js",
     "start": "node ./src/server.js --mode PROD",
     "mongo": "node ./src/server.js -p 8080",
@@ -43,6 +45,8 @@
   "description": "",
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
-    "mocha": "^10.2.0"
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   }
 }

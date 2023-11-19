@@ -5,14 +5,19 @@ import productController from "../../controllers/products.controller.js";
 
 export default class ProductRouter extends BaseRouter {
     init() {
-        this.create('/', passport.authenticate('jwt'), valid_role, productController.createController);
+        // this.create('/', passport.authenticate('jwt'), valid_role, productController.createController);
+        this.create('/', productController.createController);
 
-        this.read('/', passport.authenticate('jwt'), productController.readController);
+        // this.read('/', passport.authenticate('jwt'), productController.readController);
+        this.read('/', productController.readController);
+
 
         this.read('/:id', passport.authenticate('jwt'), productController.readOneController);
 
-        this.update('/:id', passport.authenticate('jwt'), valid_role, productController.updateController);
+        // this.update('/:id', passport.authenticate('jwt'), valid_role, productController.updateController);
+        this.update('/:id', productController.updateController);
 
-        this.delete('/:id', passport.authenticate('jwt'), valid_role, productController.deleteController);
+        // this.delete('/:id', passport.authenticate('jwt'), valid_role, productController.deleteController);
+        this.delete('/:id', productController.deleteController);
     }
 };

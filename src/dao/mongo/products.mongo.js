@@ -12,9 +12,18 @@ export default class ProductMongo {
                 message: 'Product created.',
                 response: { product_id: one._id, price: one.price }
             }
-        } catch {
-            error.where = "products persistence mongo"
+        } catch (error) {
+            error.where = "products persistence mongo";
             return next(error)
+        }
+    };
+
+    async createModelTest(data, next) {
+        try {
+            return await Product.create(data);
+        } catch (error) {
+            error.where = "mongo";
+            return next(error);
         }
     };
 
@@ -24,12 +33,12 @@ export default class ProductMongo {
             if (all.length > 0) {
                 return {
                     message: 'Products found.',
-                    response: { products: all }
+                    response: [{ products: all }]
                 }
             } else {
                 return null;
             }
-        } catch {
+        } catch (error) {
             error.where = "products persistence mongo"
             return next(error)
         }
@@ -40,7 +49,6 @@ export default class ProductMongo {
             return await Product.find().skip(skip).limit(limit)
         }
         catch (error) {
-
             error.where = "products persistence mongo"
             return next(error)
         }
@@ -57,7 +65,7 @@ export default class ProductMongo {
             } else {
                 return null;
             }
-        } catch {
+        } catch (error) {
             error.where = "products persistence mongo"
             return next(error)
         }
@@ -74,7 +82,7 @@ export default class ProductMongo {
             } else {
                 return null;
             }
-        } catch {
+        } catch (error) {
             error.where = "products persistence mongo"
             return next(error)
         }
@@ -91,7 +99,7 @@ export default class ProductMongo {
             } else {
                 return null;
             }
-        } catch {
+        } catch (error) {
             error.where = "products persistence mongo"
             return next(error)
         }
