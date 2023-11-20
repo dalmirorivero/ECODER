@@ -9,7 +9,7 @@ export default async function (req, res, next) {
     let model = new User();
     let user = await model.readOneUserModel(req.body.mail)
 
-    let passwordHash = user.response.password
+    let passwordHash = user.response.password || user.password
     if (passwordHash) {
         let verified = compareSync(passwordForm, passwordHash);
         if (verified) {

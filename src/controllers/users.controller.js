@@ -23,6 +23,8 @@ const authController = {
 
     loginController: async (req, res, next) => {
         try {
+            let user = req.user;
+            console.log(user);
             req.session.mail = req.body.mail;
             req.session.role = req.user.role;
             let response = await service.loginService(user)
